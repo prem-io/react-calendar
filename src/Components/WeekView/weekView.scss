@@ -42,6 +42,41 @@
   right: 8px;
 }
 
+.time-slots {
+  // cursor: pointer;
+  height: 60px;
+}
+
+.calendar-header {
+  padding-bottom: 20px;
+}
+
+.appTitle {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.spacify {
+  margin-right: 5px;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.weekButtons {
+  text-align: center;
+}
+
+.formated-date {
+  font-size: 20px;
+  font-weight: 400;
+  opacity: 0.5;
+  line-height: 30px;
+  text-align: center;
+}
+
 .lightHighlighter {
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.082);
 }
