@@ -8,7 +8,7 @@ import AddEventModal from '../AddEventModal';
 import CalendarHeader from './CalendarHeader';
 import WeekHeader from './WeekHeader';
 import TimeSlotGroup from './TimeSlotGroup';
-import { Modal, Timeline } from 'antd';
+import EventHighlighter from './EventHighlighter';
 
 class WeekView extends Component {
   state = {
@@ -114,7 +114,16 @@ class WeekView extends Component {
             events={events[time]}
             openAddEventModal={this.openAddEventModal}
           >
-            {/* Event Highlighter */}
+            {events[time] && events[time].map(
+              event =>
+                event.startWeek <= moment(startDate).week() &&
+                event.endWeek >= moment(startDate).week() &&
+                <EventHighlighter
+                  key={event.title + event.start + event.end}
+                  event={event}
+                  startDate={startDate}
+                />
+            )}
           </TimeSlotGroup>
         ))}
       </div>
