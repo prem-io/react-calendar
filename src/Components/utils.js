@@ -19,7 +19,6 @@ export const getAllDaysInTheWeek = (currentDate = moment()) => {
 
 // Hours in a day (24hr - format)
 export const times = [
-  24,
   1,
   2,
   3,

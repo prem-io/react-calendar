@@ -28,7 +28,9 @@ export function CalendarHeader({ startDate, goToToday, goToPreviousWeek, goToNex
         />
       </Col>
 
-      <Col span={2} offset={7}><Button icon="plus">Add Event</Button></Col>
+      <Col span={2} offset={7}>
+        <Button icon="plus">Add Event</Button>
+      </Col>
 
       <Col span={2} className="alignRight">
         <Tooltip placement="topLeft" title={moment().format('dddd, MMM D')}>

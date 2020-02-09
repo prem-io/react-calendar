@@ -20,7 +20,7 @@ export function TimeSlotGroup({ children, time, weekDays, openAddEventModal }) {
           key={day.dateStamp}
           dateStamp={day.dateStamp}
           time={time}
-        // openAddEventModal={props.openAddEventModal}
+          openAddEventModal={openAddEventModal}
         />
       ))}
       {/* Event Highlighter is the children */}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import WeekView from './WeekView/WeekView'
 
 const events = [

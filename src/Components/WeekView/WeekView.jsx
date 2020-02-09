@@ -4,9 +4,11 @@ import './weekView.scss';
 import moment from 'moment';
 
 import { getAllDaysInTheWeek, times } from "../utils"
+import AddEventModal from '../AddEventModal';
+import CalendarHeader from './CalendarHeader';
 import WeekHeader from './WeekHeader';
 import TimeSlotGroup from './TimeSlotGroup';
-import CalendarHeader from './CalendarHeader';
+import { Modal } from 'antd';
 
 class WeekView extends Component {
   state = {
@@ -40,8 +42,42 @@ class WeekView extends Component {
     });
   };
 
-  render() {
+  onCurrentEventTimeChange = dates => {
+    console.log("dates", dates)
+    this.setState({
+      eventStart: +dates[0],
+      eventEnd: +dates[1],
+    });
+  };
 
+  openAddEventModal = (dateStamp, time) => {
+    const start = moment(dateStamp).set('hour', time);
+    const end = start.clone().add(1, 'hour');
+    this.setState({
+      showAddEventModal: true,
+      eventStart: +start,
+      eventEnd: +end,
+    });
+  };
+
+  onOkAddEventModal = title => {
+    this.props.onNewEvent({
+      title,
+      start: this.state.eventStart,
+      end: this.state.eventEnd,
+    });
+    this.setState({
+      showAddEventModal: false,
+    });
+  };
+
+  onCloseAddEventModal = () => {
+    this.setState({
+      showAddEventModal: false,
+    });
+  };
+
+  render() {
     const {
       startDate,
       weekDays,
@@ -49,11 +85,19 @@ class WeekView extends Component {
       eventStart,
       eventEnd,
     } = this.state;
-
     const { events } = this.props
 
     return (
       <div className="container">
+        <AddEventModal
+          visible={showAddEventModal}
+          eventStart={eventStart}
+          eventEnd={eventEnd}
+          onTimeChange={this.onCurrentEventTimeChange}
+          onOk={this.onOkAddEventModal}
+          onCancel={this.onCloseAddEventModal}
+        />
+
         <CalendarHeader
           startDate={startDate}
           goToToday={this.goToToday}
@@ -69,6 +113,7 @@ class WeekView extends Component {
             time={time}
             weekDays={weekDays}
             events={events[time]}
+            openAddEventModal={this.openAddEventModal}
           >
             {/* Event Highlighter */}
           </TimeSlotGroup>
