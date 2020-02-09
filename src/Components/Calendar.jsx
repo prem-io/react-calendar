@@ -18,10 +18,12 @@ class Calendar extends Component {
     }
 
     render() {
+        const {events} = this.state
+        
         return (
             <div>
                 Calendar
-                <WeekView />
+                <WeekView events={events}/>
             </div>
         )
     }
