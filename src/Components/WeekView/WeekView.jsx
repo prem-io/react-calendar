@@ -8,7 +8,7 @@ import AddEventModal from '../AddEventModal';
 import CalendarHeader from './CalendarHeader';
 import WeekHeader from './WeekHeader';
 import TimeSlotGroup from './TimeSlotGroup';
-import { Modal } from 'antd';
+import { Modal, Timeline } from 'antd';
 
 class WeekView extends Component {
   state = {
@@ -43,7 +43,6 @@ class WeekView extends Component {
   };
 
   onCurrentEventTimeChange = dates => {
-    console.log("dates", dates)
     this.setState({
       eventStart: +dates[0],
       eventEnd: +dates[1],

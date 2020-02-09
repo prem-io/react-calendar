@@ -46,6 +46,7 @@ export class AddEventModal extends Component {
             }}
             format="MMM Do, YYYY hh:mm a"
             style={{ width: "100%" }}
+            allowClear={false}
           />
         </div>
       </Modal>
