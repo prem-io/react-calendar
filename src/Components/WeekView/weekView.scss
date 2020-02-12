@@ -37,7 +37,6 @@
   color: "#212121";
   text-align: "right";
   padding: 5px;
-  border: none !important;
 }
 
 .timeString {
@@ -48,10 +47,10 @@
 
 .time-slots {
   cursor: pointer;
-  height: 60px;
-  border: 1px solid #e0e0e0;
-  // border-right: 1px solid #e0e0e0;
-  // border-left: 1px solid #e0e0e0;
+  height: 100px;
+  // border: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
 }
 
 .ant-row-flex:last-child {
@@ -93,14 +92,15 @@
 }
 
 .selectedDate {
-  background-color: #FFEEEE;
+  background-color: #ffeeee;
 }
 
 .eventHighlighter {
   position: "absolute";
-  background-color: "#453BB1";
+  background-color: "red";
   border: "1px solid #453BB1";
-  border-radius: "4px";
+  opacity: 0.6;
+  border-radius: "2px";
   color: "white";
   padding: "2px 4px";
   font-size: "12px";

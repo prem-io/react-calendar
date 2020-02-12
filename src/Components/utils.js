@@ -175,11 +175,14 @@ export const generateWeekViewCoordinates = (event, startDate) => {
   let width, height, top, left;
 
   // Calculating Top
-  top = start.minutes() === 30 ? '50%' : '0%';
+  console.log(start.minutes())
+  top = start.minutes() === 15 ? '25' : start.minutes() === 30 ? '50' : '0';
 
   // Calculating height
-  const timeFactor = duration.asHours() + duration.minutes() / 60;
-  height = timeFactor * 95;
+  // const timeFactor = duration.asHours() + duration.minutes() / 60;
+  // height = timeFactor * 95;
+
+  height = duration.asHours() * 100;
 
   if (weekStart.week() === start.week()) {
     const weekDay = start.weekday();
@@ -188,7 +191,8 @@ export const generateWeekViewCoordinates = (event, startDate) => {
 
   if (weekStart.week() === start.week() && weekStart.week() === end.week()) {
     const daysDiff = duration.days();
-    width = (daysDiff + 1) * 12.5 - 2;
+    // width = (daysDiff + 1) * 12.5 - 2;
+    width = (daysDiff + 1) * 12.5;
   }
 
   if (weekStart.week() > start.week() && weekStart.week() === end.week()) {
@@ -202,7 +206,8 @@ export const generateWeekViewCoordinates = (event, startDate) => {
         )
       )
       .days();
-    width = (daysDiff + 1) * 12.5 - 2;
+    // width = (daysDiff + 1) * 12.5 - 2;
+    width = (daysDiff + 1) * 12.5;
   }
 
   if (weekStart.week() > start.week()) {

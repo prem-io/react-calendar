@@ -7,8 +7,9 @@ import { generateWeekViewCoordinates } from '../utils'
 const eventHighlighter = {
   position: 'absolute',
   backgroundColor: '#453BB1',
-  border: '1px solid #453BB1',
-  borderRadius: '4px',
+  border: '1px solid #2a0698',
+  opacity: 0.6,
+  borderRadius: '2px',
   color: 'white',
   padding: '2px 4px',
   fontSize: '12px',
@@ -27,13 +28,10 @@ export class EventHighlighter extends Component {
           ...eventHighlighter
         }}
       >
-        {event.title} <br />
+        {event.title}
+        <br />
         <span style={{ fontSize: 10 }}>
-          {moment(event.start).format('hh:mm a')}
-          {' '}
-          -
-            {' '}
-          {moment(event.end).format('hh:mm a')}
+          {moment(event.start).format('hh:mm a')} {' '} - {' '} {moment(event.end).format('hh:mm a')}
         </span>
       </div>
     )
