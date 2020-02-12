@@ -47,11 +47,11 @@
 }
 
 .time-slots {
-  // cursor: pointer;
+  cursor: pointer;
   height: 60px;
-  border-right: 1px solid #e0e0e0;
-  border-left: 1px solid #e0e0e0;
-  // border: 1px solid #e0e0e0;
+  border: 1px solid #e0e0e0;
+  // border-right: 1px solid #e0e0e0;
+  // border-left: 1px solid #e0e0e0;
 }
 
 .ant-row-flex:last-child {
@@ -90,6 +90,10 @@
 
 .lightHighlighter {
   background-color: rgba(0, 0, 0, 0.082);
+}
+
+.selectedDate {
+  background-color: #FFEEEE;
 }
 
 .eventHighlighter {

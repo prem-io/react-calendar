@@ -78,8 +78,10 @@ export const times = [
   23,
 ];
 
-export const getAllDaysInTheWeek = (currentDate = moment()) => {
-  const weekStart = currentDate.clone().startOf('week');
+export const getAllDaysInTheWeek = (selectedDate) => {
+  const date = (selectedDate === undefined) ? moment() : selectedDate
+
+  const weekStart = date.clone().startOf('week');
 
   const days = Array.from(Array(7))
     .map((day, index) => index)
@@ -112,6 +114,14 @@ export const isTodaysDate = dateStamp => {
     today.day() === dateStamp.day()
   );
 };
+
+export const isSelectedDate = (dateStamp, selectedDate) => {
+  selectedDate = moment(selectedDate)
+  dateStamp = moment(dateStamp);
+
+  return (moment.duration(dateStamp.diff(selectedDate)).days() === 0 && selectedDate.day() === dateStamp.day())
+
+}
 
 /** event -> { title, start, end } */
 

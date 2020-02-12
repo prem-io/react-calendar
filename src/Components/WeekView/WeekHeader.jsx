@@ -2,15 +2,15 @@ import React from 'react';
 import './weekView.scss';
 
 import { Row, Col } from 'antd';
-import { isTodaysDate } from '../utils';
+import { isTodaysDate, isSelectedDate } from '../utils';
 
-export function WeekHeader({ weekDays }) {
+export function WeekHeader({ weekDays, startDate }) {
   return (
     <Row type="flex">
       <Col span={3} />
       {weekDays.map(day => (
         <Col
-          className={`col weekDays ${isTodaysDate(day.dateStamp) ? "lightHighlighter" : ""}`}
+          className={`col weekDays ${isTodaysDate(day.dateStamp) ? "lightHighlighter" : isSelectedDate(day.dateStamp, startDate) ? "selectedDate" : ""}`}
           key={day.dateStamp}
           span={3}
         >

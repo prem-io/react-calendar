@@ -5,12 +5,9 @@ import moment from 'moment';
 import { Row, Col, Button, Icon, Tooltip } from 'antd';
 import { DatePicker } from 'antd';
 
-function onChange(date, dateString) {
-  console.log(date, dateString);
-}
-
-export function CalendarHeader({ startDate, goToToday, goToPreviousWeek, goToNextWeek }) {
+export function CalendarHeader({ startDate, goToToday, goToPreviousWeek, goToNextWeek, goToDate }) {
   const formatedDate = moment(startDate).format('MMM YYYY');
+  
   return (
     <Row type="flex" className="calendar-header">
       <Col span={3} offset={3} className="appTitle">
@@ -19,7 +16,7 @@ export function CalendarHeader({ startDate, goToToday, goToPreviousWeek, goToNex
 
       <Col span={3}>
         <DatePicker
-          onChange={onChange}
+          onChange={goToDate}
           defaultValue={moment(startDate)}
           format={'dddd, MMM D'}
           allowClear={false}

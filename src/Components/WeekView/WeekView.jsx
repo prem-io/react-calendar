@@ -26,6 +26,13 @@ class WeekView extends Component {
     });
   };
 
+  goToDate = (date) => {
+    this.setState({
+      startDate: +date,
+      weekDays: getAllDaysInTheWeek(date),
+    });
+  };
+
   goToPreviousWeek = () => {
     const dateBefore7Days = moment(this.state.startDate).subtract(7, 'days');
     this.setState({
@@ -102,14 +109,16 @@ class WeekView extends Component {
           goToToday={this.goToToday}
           goToPreviousWeek={this.goToPreviousWeek}
           goToNextWeek={this.goToNextWeek}
+          goToDate={this.goToDate}
         />
 
-        <WeekHeader weekDays={weekDays} />
+        <WeekHeader weekDays={weekDays} startDate={startDate} />
 
         {times.map(time => (
           <TimeSlotGroup
             key={time}
             time={time}
+            startDate={startDate}
             weekDays={weekDays}
             events={events[time]}
             openAddEventModal={this.openAddEventModal}

@@ -2,13 +2,13 @@ import React from 'react';
 import './weekView.scss'
 
 import { Col } from 'antd';
-import { isTodaysDate } from '../utils'
+import { isTodaysDate, isSelectedDate } from '../utils'
 
-export function TimeSlot({ dateStamp, time, openAddEventModal }) {
+export function TimeSlot({ dateStamp, time, startDate, openAddEventModal }) {
   return (
     <Col
       key={dateStamp}
-      className={`time-slots ${isTodaysDate(dateStamp) ? "lightHighlighter" : ""}`}
+      className={`time-slots ${isTodaysDate(dateStamp) ? "lightHighlighter" : isSelectedDate(dateStamp, startDate) ? "selectedDate" : ""}`}
       span={3}
       onClick={() => openAddEventModal(dateStamp, time)}
     />
