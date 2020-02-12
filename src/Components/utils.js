@@ -169,7 +169,7 @@ export const generateWeekViewCoordinates = (event, startDate) => {
 
   // Calculating height
   const timeFactor = duration.asHours() + duration.minutes() / 60;
-  height = timeFactor * 100;
+  height = timeFactor * 95;
 
   if (weekStart.week() === start.week()) {
     const weekDay = start.weekday();

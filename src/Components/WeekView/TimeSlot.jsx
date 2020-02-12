@@ -8,7 +8,7 @@ export function TimeSlot({ dateStamp, time, openAddEventModal }) {
   return (
     <Col
       key={dateStamp}
-      className={`col time-slots ${isTodaysDate(dateStamp) ? "lightHighlighter" : ""}`}
+      className={`time-slots ${isTodaysDate(dateStamp) ? "lightHighlighter" : ""}`}
       span={3}
       onClick={() => openAddEventModal(dateStamp, time)}
     />

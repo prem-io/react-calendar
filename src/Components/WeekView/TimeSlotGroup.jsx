@@ -8,6 +8,7 @@ import TimeSlot from './TimeSlot';
 export function TimeSlotGroup({ children, time, weekDays, openAddEventModal }) {
   const formatedTime = moment().set('hours', time).format('h a');
 
+  console.log(moment().format("HH:mm"))
   return (
     <Row type="flex" key={time + formatedTime} className="row">
       <Col span={3} className="timeCol">

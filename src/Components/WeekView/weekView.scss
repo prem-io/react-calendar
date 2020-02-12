@@ -4,7 +4,9 @@
 }
 
 .col {
-  border: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
 }
 
 .row {
@@ -35,6 +37,7 @@
   color: "#212121";
   text-align: "right";
   padding: 5px;
+  border: none !important;
 }
 
 .timeString {
@@ -46,6 +49,13 @@
 .time-slots {
   // cursor: pointer;
   height: 60px;
+  border-right: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  // border: 1px solid #e0e0e0;
+}
+
+.ant-row-flex:last-child {
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .calendar-header {
