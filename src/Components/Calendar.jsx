@@ -9,6 +9,7 @@ class Calendar extends Component {
   }
 
   addNewEvent = event => {
+    console.log(event)
     event = {
       ...event,
       id: generateUniqueId(event),

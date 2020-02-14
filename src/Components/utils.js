@@ -39,14 +39,28 @@ export const events = {
       endWeek: 7
     }
   ],
-  23: [
+  3: [
     {
-      "id": "15807582000001580761800000",
-      "title": "",
-      "start": 1580758200000,
-      "end": 1580761800000,
-      "startWeek": 6,
-      "endWeek": 6
+      title: "Role Name",
+      start: 1581456600000,
+      end: 1581463800000,
+      id: "1581456600000RoleName1581463800000",
+      eventStartTime: "03:00 AM",
+      eventEndTime: "05:00 AM",
+      startWeek: 7,
+      endWeek: 7,
+    }
+  ],
+  13: [
+    {
+      id: "15807582000001580761800000",
+      title: "Role Name",
+      start: 1580758200000,
+      end: 1580761800000,
+      eventStartTime: "03:00 AM",
+      eventEndTime: "05:00 AM",
+      startWeek: 7,
+      endWeek: 7
     }
   ]
 }
@@ -171,18 +185,31 @@ export const generateWeekViewCoordinates = (event, startDate) => {
   const duration = moment.duration(end.diff(start));
   const weekStart = moment(startDate);
 
+  const eventStartTime = moment(event.start).format('hh:mm A')
+  const eventEndTime = moment(event.end).format('hh:mm A')
+
+  const startT = new Date('01.02.2020 ' + eventStartTime).getTime() / 1000;
+  const endT = new Date('01.02.2020 ' + eventEndTime).getTime() / 1000;
+
+  // time diff in minutes
+  var result = Math.abs(endT - startT) / 3600;
+
+  console.log("startTime", eventStartTime)
+  console.log("endTime", eventEndTime)
+  console.log("diff", result)
+
   // Calculating Highlighter width, height, position
   let width, height, top, left;
 
   // Calculating Top
-  console.log(start.minutes())
-  top = start.minutes() === 15 ? '25' : start.minutes() === 30 ? '50' : '0';
+  // console.log(start.minutes())
+  top = start.minutes() === 15 ? '25' : start.minutes() === 30 ? '50' : start.minutes() === 45 ? '75' : '0';
 
   // Calculating height
   // const timeFactor = duration.asHours() + duration.minutes() / 60;
   // height = timeFactor * 95;
 
-  height = duration.asHours() * 100;
+  height = result * 100;
 
   if (weekStart.week() === start.week()) {
     const weekDay = start.weekday();

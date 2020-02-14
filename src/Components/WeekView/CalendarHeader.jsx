@@ -2,7 +2,7 @@ import React from 'react'
 import './weekView.scss'
 
 import moment from 'moment';
-import { Row, Col, Button, Icon, Tooltip } from 'antd';
+import { Row, Col, Button, Icon } from 'antd';
 import { DatePicker } from 'antd';
 
 export function CalendarHeader({ startDate, goToToday, goToPreviousWeek, goToNextWeek, goToDate }) {
@@ -26,7 +26,7 @@ export function CalendarHeader({ startDate, goToToday, goToPreviousWeek, goToNex
       </Col>
 
       <Col span={2} offset={7}>
-        <Button icon="plus">Add Event</Button>
+        {/* <Button icon="plus">Add Event</Button> */}
       </Col>
 
       <Col span={2} className="alignRight">
