@@ -17,6 +17,7 @@ class WeekView extends Component {
     showAddEventModal: false,
     eventStart: null,
     eventEnd: null,
+    selectedDate: null
   };
 
   goToToday = () => {
@@ -29,6 +30,7 @@ class WeekView extends Component {
   goToDate = (date) => {
     this.setState({
       startDate: +date,
+      selectedDate: +date,
       weekDays: getAllDaysInTheWeek(date),
     });
   };
@@ -84,13 +86,7 @@ class WeekView extends Component {
   };
 
   render() {
-    const {
-      startDate,
-      weekDays,
-      showAddEventModal,
-      eventStart,
-      eventEnd,
-    } = this.state;
+    const { startDate, weekDays, showAddEventModal, eventStart, eventEnd, selectedDate } = this.state;
     const { events } = this.props
 
     return (
@@ -112,13 +108,14 @@ class WeekView extends Component {
           goToDate={this.goToDate}
         />
 
-        <WeekHeader weekDays={weekDays} startDate={startDate} />
+        <WeekHeader weekDays={weekDays} startDate={startDate} selectedDate={selectedDate} />
 
         {times.map(time => (
           <TimeSlotGroup
             key={time}
             time={time}
             startDate={startDate}
+            selectedDate={selectedDate}
             weekDays={weekDays}
             events={events[time]}
             openAddEventModal={this.openAddEventModal}

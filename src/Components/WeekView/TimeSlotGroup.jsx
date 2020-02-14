@@ -5,7 +5,7 @@ import moment from 'moment';
 import { Row, Col } from 'antd';
 import TimeSlot from './TimeSlot';
 
-export function TimeSlotGroup({ children, time, startDate, weekDays, openAddEventModal }) {
+export function TimeSlotGroup({ children, time, startDate, weekDays, openAddEventModal, selectedDate }) {
   const formatedTime = moment().set('hours', time).format('h a');
 
   return (
@@ -20,7 +20,7 @@ export function TimeSlotGroup({ children, time, startDate, weekDays, openAddEven
           key={day.dateStamp}
           dateStamp={day.dateStamp}
           time={time}
-          startDate={startDate}
+          selectedDate={selectedDate}
           openAddEventModal={openAddEventModal}
         />
       ))}

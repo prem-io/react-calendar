@@ -7,7 +7,7 @@ import { DatePicker } from 'antd';
 
 export function CalendarHeader({ startDate, goToToday, goToPreviousWeek, goToNextWeek, goToDate }) {
   const formatedDate = moment(startDate).format('MMM YYYY');
-  
+
   return (
     <Row type="flex" className="calendar-header">
       <Col span={3} offset={3} className="appTitle">
@@ -30,9 +30,7 @@ export function CalendarHeader({ startDate, goToToday, goToPreviousWeek, goToNex
       </Col>
 
       <Col span={2} className="alignRight">
-        <Tooltip placement="topLeft" title={moment().format('dddd, MMM D')}>
-          <Button onClick={goToToday}>Today</Button>
-        </Tooltip>
+        <Button onClick={goToToday}>Today</Button>
       </Col>
 
       <Col span={2} className="weekButtons">

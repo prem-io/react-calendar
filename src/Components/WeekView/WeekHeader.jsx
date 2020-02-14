@@ -4,13 +4,13 @@ import './weekView.scss';
 import { Row, Col } from 'antd';
 import { isTodaysDate, isSelectedDate } from '../utils';
 
-export function WeekHeader({ weekDays, startDate }) {
+export function WeekHeader({ weekDays, selectedDate }) {
   return (
     <Row type="flex">
       <Col span={3} />
       {weekDays.map(day => (
         <Col
-          className={`col weekDays ${isTodaysDate(day.dateStamp) ? "lightHighlighter" : isSelectedDate(day.dateStamp, startDate) ? "selectedDate" : ""}`}
+          className={`col weekDays ${isTodaysDate(day.dateStamp) ? "lightHighlighter" : isSelectedDate(day.dateStamp, selectedDate) ? "selectedDate" : ""}`}
           key={day.dateStamp}
           span={3}
         >
